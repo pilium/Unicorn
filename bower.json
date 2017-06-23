@@ -1,0 +1,21 @@
+{
+  "name": "Milter",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Igor Myasnikov"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/pilium/Mitler",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "selectize": "^0.12.4"
+  }
+}
