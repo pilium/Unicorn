@@ -50,6 +50,8 @@
 // 		@include opacity(100)
 // 		transform: scale(1)
 
+*
+	box-sizing: border-box
 *::-webkit-input-placeholder
 	color: #666
 	opacity: 1
@@ -79,27 +81,112 @@ body textarea:required:valid
 
 html, body
 	height: 100%
+	margin: 0
+  padding: 0
 
 body
 	font-size: 16px
 	min-width: 320px
 	position: relative
-	line-height: 1.75
-	font-family: $default-font
+	line-height: 1.2
+	font-family: $mainFont
+	color: $mainColor
 	overflow-x: hidden
 	opacity: 1
+	.container
+		width: 100%
+		max-width: 1190px
+		margin: 0 auto
+		padding: 0 10px
 
 li,
 ul
 	margin: 0
-  padding: 0
-  list-style: none
+	padding: 0
+	list-style-type: none
 
-p
-  margin: 0
+h1,h2,h3,p
+	margin: 0
+	padding: 0
+a
+	text-decoration: none
+	color: #000
+	&:hover
+		color: inherit
+		text-decoration: none
+section
+	position: relative
+input
+	display: inline-block
+	outline: none
+
+@import "common"
+
 .img-responsive
 	display: block
 	max-width: 100%
 	height: auto
+
+// Header
+header
+	height: 100vh
+	min-height: 700px
+	background: url('../img/top-banner-bg.jpg') center top no-repeat
+	background-size: cover
+	.container
+		position: relative
+.header
+	max-width: 1170px
+	padding-top: 50px
+	overflow: hidden
+.header-top
+	display: flex
+	justify-content: space-between
+	.header-logo
+		font-family: $boldFont
+		font-size: 18px
+		text-transform: uppercase
+
+.header-nav__list
+	li
+		display: inline-block
+		margin-right: 12px
+		&:last-child
+			margin-right: 0
+	a
+		text-decoration: none
+		text-transform: uppercase
+		font-family: $boldFont
+		font-size: 16px
+
+.header-composition
+	position: absolute
+	right: 10px
+	top: 40%
+	top: 350px
+	width: 100%
+	max-width: 570px
+	text-align: right
+	&__title
+		position: relative
+		display: block
+		margin-bottom: 55px
+		font-size: 72px
+		line-height: 1
+		text-transform: uppercase
+		font-family: $boldFont
+		&::after
+			content: ''
+			position: absolute
+			right: 0
+			bottom: -22px
+			display: block
+			width: 140px
+			height: 4px
+			background-color: #000
+	&__text
+		margin-bottom: 60px
+		font-size: 18px
+		line-height: 34px
 
 @import "media" // Всегда в конце

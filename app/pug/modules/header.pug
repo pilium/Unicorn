@@ -1,28 +1,26 @@
 //- header(style={background: 'url(img/top-bg.jpg) center no-repeat'}).site-header
-.container
-  .row
-    .col
-      | 1 of 2
-    .col
-      | 1 of 2
-  .row
-    .col
-      | 1 of 3
-    .col
-      | 1 of 3
-    .col-6
-      | 1 of 3 
-
-// Stack the columns on mobile by making one full-width and the other half-width
-.row
-  .col.col-md-8 .col .col-md-8
-  .col-6.col-md-4 .col-6 .col-md-4
-// Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop
-.row
-  .col-6.col-md-4 .col-6 .col-md-4
-  .col-6.col-md-4 .col-6 .col-md-4
-  .col-6.col-md-4 .col-6 .col-md-4
-// Columns are always 50% wide, on mobile and desktop
-.row.align-items-start
-  .col-6 .col-6
-  .col-6 .col-6
+header
+  .container
+    .header
+      .header-top
+        .header-logo
+          span Unicorn
+        nav.header-nav
+          ul.header-nav__list
+            li
+              a(href="#0") Home
+            li
+              a(href="#0") About
+            li
+              a(href="#0") Stories
+            li
+              a(href="#0") Hello
+      .header-composition
+        span.header-composition__title Storyteller
+        p.header-composition__text One morning, when Gregor Samsa woke from troubled dreams,
+          | he found himself transformed in his bed into a horrible vermin.
+          | He lay on his armour-like back, and if he lifted his head a little
+          | he could see his brown belly, slightly domed and divided by arches into stiff sections. 
+        a(href="#0").g-btn read the rest
+          svg
+            rect(x='0', y='0', fill='none', width='100%', height='100%')

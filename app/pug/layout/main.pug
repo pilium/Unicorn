@@ -24,14 +24,11 @@ html(lang="ru-RU")
 	body.ishome
 		.preloader
 			.pulse
-		#my-page
-			#my-header
-				include ../modules/header
-			#my-content
-				block content
-			#my-footer
-				include ../modules/footer
-			.top(title="Наверх")
-				i.fa.fa-angle-double-up
+		include ../modules/header
+
+		block content
+
+		include ../modules/footer
+		.top(title="Наверх")
 		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
 		script(src="js/scripts.min.js")
