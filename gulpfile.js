@@ -1,15 +1,16 @@
 var gulp = require('gulp'),
-  gutil = require('gulp-util' ),
+  gutil = require('gulp-util'),
   sass = require('gulp-sass'),
-  pug						 = require('gulp-pug'),
+  pug = require('gulp-pug'),
   browserSync = require('browser-sync'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify'),
   cleanCSS = require('gulp-clean-css'),
-  plumber				 = require('gulp-plumber'),
+  plumber = require('gulp-plumber'),
   rename = require('gulp-rename'),
   del = require('del'),
   imagemin = require('gulp-imagemin'),
+  spritesmith = require('gulp.spritesmith'),
   cache = require('gulp-cache'),
   autoprefixer = require('gulp-autoprefixer'),
   ftp = require('vinyl-ftp'),
@@ -20,26 +21,27 @@ var gulp = require('gulp'),
 // Работа с Pug
 gulp.task('pug', function() {
   return gulp.src('app/pug/pages/*.pug')
-          .pipe(plumber())
-          .pipe(pug({
-            pretty: false //минификация: False
-          }))
-          .on('error', notify.onError(function(error) {
-            return 'Message to the notifier: ' + error.message;
-          }))
-          .pipe(gulp.dest('app'));
+		.pipe(plumber())
+		.pipe(pug({
+  pretty: true //минификация: False
+}))
+		.on('error', notify.onError(function(error) {
+  return 'Message to the notifier: ' + error.message;
+}))
+		.pipe(gulp.dest('app'));
 });
 
 gulp.task('js', function() {
   return gulp.src([
-    'app/libs/slick-carousel/slick/slick.min',
+    'app/libs/bxslider-4/dist/jquery.bxslider.min.js',
+    'app/libs/wow/dist/wow.min.js',
     'app/js/common.js', // Всегда в конце
   ])
-	.pipe(plumber())
-	.pipe(concat('scripts.min.js'))
-	//.pipe(uglify()) // Минимизировать весь js (на выбор)
-	.pipe(gulp.dest('app/js'))
-	.pipe(browserSync.reload({stream: true}));
+		.pipe(plumber())
+		.pipe(concat('scripts.min.js'))
+		.pipe(uglify()) // Минимизировать весь js (на выбор)
+		.pipe(gulp.dest('app/js'))
+		.pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('browser-sync', function() {
@@ -55,12 +57,12 @@ gulp.task('browser-sync', function() {
 
 gulp.task('sass', function() {
   return gulp.src('app/sass/main.sass')
-	.pipe(sass({outputStyle: 'expand'}).on('error', notify.onError()))
-	.pipe(rename({suffix: '.min', prefix: ''}))
-	.pipe(autoprefixer(['last 15 versions']))
-	.pipe(cleanCSS()) // Опционально, закомментировать при отладке
-	.pipe(gulp.dest('app/css'))
-	.pipe(browserSync.reload({stream: true}));
+		.pipe(sass({outputStyle: 'expand'}).on('error', notify.onError()))
+		.pipe(rename({suffix: '.min', prefix: ''}))
+		.pipe(autoprefixer(['last 15 versions']))
+		.pipe(cleanCSS()) // Опционально, закомментировать при отладке
+		.pipe(gulp.dest('app/css'))
+		.pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('watch', ['pug', 'sass', 'js', 'browser-sync'], function() {
@@ -72,9 +74,32 @@ gulp.task('watch', ['pug', 'sass', 'js', 'browser-sync'], function() {
 
 gulp.task('imagemin', function() {
   return gulp.src('app/img/**/*')
-	.pipe(cache(imagemin()))
-	.pipe(gulp.dest('dist/img'));
+		.pipe(cache(imagemin()))
+		.pipe(gulp.dest('dist/img'));
 });
+
+// Сборка спрайтов PNG
+gulp.task('cleansprite', function() {
+  return del.sync('app/img/sprite/sprite.png');
+});
+
+gulp.task('spritemade', function() {
+  var spriteData =
+			gulp.src('app/img/sprite/*.*')
+				.pipe(spritesmith({
+  imgName: '../img/sprite/sprite.png',
+  cssName: '_sprite.sass',
+  padding: 15,
+  cssFormat: 'sass',
+  algorithm: 'binary-tree',
+
+}));
+
+  spriteData.img.pipe(rename('sprite.png')).pipe(gulp.dest('app/img/sprite/')); // путь, куда сохраняем картинку
+  spriteData.css.pipe(gulp.dest('app/sass/')); // путь, куда сохраняем стили
+});
+gulp.task('sprite', ['cleansprite', 'spritemade']);
+
 
 gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
 
@@ -115,7 +140,7 @@ gulp.task('deploy', function() {
     'dist/.htaccess',
   ];
   return gulp.src(globs, {buffer: false})
-	.pipe(conn.dest('/path/to/folder/on/server'));
+		.pipe(conn.dest('/path/to/folder/on/server'));
 
 });
 

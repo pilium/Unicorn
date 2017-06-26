@@ -1,3 +1,6 @@
+.gray-bg
+  background-color: $grayBgColor
+
 .g-btn
   position: relative
   display: inline-block
@@ -5,8 +8,7 @@
   max-width: 270px
   height: 50px
   line-height: 50px
-  // border: 2px solid $borderColor
-  color: $mainColor
+  color: #fff
   font-size: 18px
   font-family: $boldFont
   text-align: center
@@ -19,7 +21,7 @@
     width: 100%
     rect
       fill: none
-      stroke: #232323
+      stroke: #fff
       stroke-width: 2
       stroke-dasharray: 600, 0
       transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1)
@@ -30,3 +32,27 @@
         stroke-dasharray: 50,600
         stroke-dashoffset: 220
         transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1)
+
+.g-section-title
+  position: relative
+  display: block
+  margin-bottom: 55px
+  font-size: 27px
+  font-family: $boldFont
+  text-align: center
+
+.section-text__big
+  width: 100%
+  max-width: 970px
+  margin: 0 auto
+  font-size: 16px
+  line-height: 33px
+  text-align: center
+
+.section-text__small
+  font-size: 16px
+  line-height: 26px
+
+.bx-wrapper
+  box-shadow: none
+  border: none

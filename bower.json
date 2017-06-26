@@ -15,5 +15,9 @@
     "test",
     "tests"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "bxslider-4": "bx-slider.js#^4.2.12",
+    "wow": "wowjs#^1.1.2"
+  }
 }

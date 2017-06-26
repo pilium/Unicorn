@@ -1,0 +1,23 @@
+mixin clientList(logo)
+    li
+        img(src=`img/clients/${logo}.png`, alt=`${logo}`).clients__logo
+
+section.clients.gray-bg
+    .container
+        span.g-section-title Clients
+        .clients-slider
+            .clients-slider_next
+            .clients-slider_prev
+            ul.js-clients__slider
+                +clientList('client1')
+                +clientList('client2')
+                +clientList('client3')
+                +clientList('client4')
+                +clientList('client5')
+                +clientList('client6')
+                +clientList('client1')
+                +clientList('client2')
+                +clientList('client3')
+                +clientList('client4')
+                +clientList('client5')
+                +clientList('client6')

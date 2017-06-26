@@ -1,0 +1,29 @@
+mixin featuredItems(filter,text,photo,name,date)
+    li.featured-item
+        span.featured-item__filter= filter
+        p.featured-item__text= text
+        .featured-item__bottom
+            img(src=`img/featured/${photo}.png`, alt=`${photo}`).featured-item__photo
+            span.featured-item__name= name
+            span.featured-item__dates= date
+
+section.featured
+    .container
+        span.g-section-title Featured Articles
+        p.section-text__big The gentlemen who rented the room would sometimes take their evening meal at home in the living room that was
+            | used by everyone, and so the door to this room was often kept closed in the  
+        .featured-slider
+            .featured-slider_next
+            .featured-slider_prev
+            ul.js-featured__slider
+                +featuredItems('comic','A million ways to die in the wild wild wild west','review1','jimmy jefferson','21/08/2016')
+                +featuredItems('lifestyle','The most comfortable chair comes with no backpain','review2','Gail Gutierrez','22/08/2016')
+                +featuredItems('travel','Journey to the center of the earth with jefferson','review3','mason johnston','03/12/2016')
+                +featuredItems('comic','A million ways to die in the wild wild wild west','review1','jimmy jefferson','21/08/2016')
+                +featuredItems('lifestyle','The most comfortable chair comes with no backpain','review2','Gail Gutierrez','22/08/2016')
+                +featuredItems('travel','Journey to the center of the earth with jefferson','review3','mason johnston','03/12/2016')
+                +featuredItems('comic','A million ways to die in the wild wild wild west','review1','jimmy jefferson','21/08/2016')
+                +featuredItems('lifestyle','The most comfortable chair comes with no backpain','review2','Gail Gutierrez','22/08/2016')
+                +featuredItems('travel','Journey to the center of the earth with jefferson','review3','mason johnston','03/12/2016')
+            
+            
