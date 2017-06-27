@@ -217,9 +217,13 @@ header
 			right: 0
 			bottom: -22px
 			display: block
-			width: 140px
+			width: 25%
 			height: 4px
 			background-color: #000
+			transition: all 1s ease
+		&:hover
+			&::after
+				width: 50%
 	&__text
 		margin-bottom: 60px
 		font-size: 18px
@@ -291,6 +295,25 @@ header
 	padding: 50px 40px
 	color: $whiteColor
 	background-color: $darkBg
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		z-index: -1
+		width: 75px
+		height: 7px
+		margin: 0 auto
+		background-color: $orangeColor
+		transform: scaleX(0)
+		transform-origin: 50%
+		transition: transform .5s ease
+	&:hover
+		&::after
+			transform: scaleX(1)
+			z-index: 1
 	&__filter
 		display: block
 		margin-bottom: 35px
@@ -441,4 +464,61 @@ header
 		font-size: 15px
 // Facts
 .facts
+	position: relative
+	background: url('../img/facts-bg.jpg') 0 0 no-repeat
+	background-size: cover
+	color: #fff
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		z-index: 1
+		background-color: rgba(0,0,0, .5)
+		display: block
+	.container
+		position: relative
+		z-index: 2
+.facts-item__wrap
+	position: relative
+	width: 100%
+	max-width: 830px
+	margin: 0 auto
+	padding: 60px 50px 10px 50px
+	background-color: rgba(255,255,255, .34)
+	&::after
+		content: ''
+		position: absolute
+		bottom: -4px
+		left: 50%
+		transform: translateX(-50%)
+		display: block
+		width: 75px
+		height: 4px
+		background-color: $orangeColor
+.facts-item
+	display: inline-block
+	vertical-align: top
+	width: 45%
+	margin: 0 2% 50px
+	text-align: center
+	&:hover
+		span
+			&::after
+				background-color: $orangeColor
+.facts-number
+	font-size: 27px
+	font-family: $boldFont
+	&::after
+		content: ''
+		display: block
+		margin: 20px auto
+		width: 75px
+		height: 4px
+		background-color: $darkestGrayColor
+		transition: all .7s
+.facts-title
+	font-size: 24px
 @import "media" // Всегда в конце

@@ -1,7 +1,7 @@
 //- For clients
 mixin sliderList(logo)
     li
-        img(src=`img/clients/${logo}.png`, alt=`${logo}`)
+        img(src=`img/clients/${logo}.png`, alt=`${logo}`).wow.rollIn
 
 //- For portfolio.pug
 mixin portfolioItem(logo,tabName)
@@ -25,8 +25,14 @@ mixin featuredItems(filter,text,photo,name,date)
             span.featured-item__name= name
             span.featured-item__dates= date
 
-//- Team
+//- Team.pug
 mixin teamItem(mod,name,work)
-    .team-item(class= mod)
+    .team-item.wow.fadeInLeft(class= mod)
         span.team-name= name
         span.team-work= work
+
+//- Facts.pug
+mixin factsItems(num,title)
+    .facts-item
+        span.facts-number= num
+        span.facts-title= title
