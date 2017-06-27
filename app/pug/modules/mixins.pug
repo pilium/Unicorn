@@ -1,0 +1,32 @@
+//- For clients
+mixin sliderList(logo)
+    li
+        img(src=`img/clients/${logo}.png`, alt=`${logo}`)
+
+//- For portfolio.pug
+mixin portfolioItem(logo,tabName)
+    div(data-filter= tabName)
+        img(src=`img/portfolio/${logo}.jpg`, alt=`${logo}`).img-responsive
+
+//- Advatages.pug
+mixin advantagesItems(name,title)
+    .advantages-item.wow.fadeInLeft
+        img(src=`img/advantages/${name}.png`, alt=`${name}`).advantages-icon
+        span.advantages-title= title 
+        p.section-text__small The gentlemen who rented the room would sometimes take
+            | their evening meal at home in the living.
+//- featured.pug
+mixin featuredItems(filter,text,photo,name,date)
+    li.featured-item
+        span.featured-item__filter= filter
+        p.featured-item__text= text
+        .featured-item__bottom
+            img(src=`img/featured/${photo}.png`, alt=`${photo}`).featured-item__photo
+            span.featured-item__name= name
+            span.featured-item__dates= date
+
+//- Team
+mixin teamItem(mod,name,work)
+    .team-item(class= mod)
+        span.team-name= name
+        span.team-work= work

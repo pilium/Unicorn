@@ -35,7 +35,8 @@ gulp.task('js', function() {
   return gulp.src([
     'app/libs/bxslider-4/dist/jquery.bxslider.min.js',
     'app/libs/wow/dist/wow.min.js',
-    'app/js/common.js', // Всегда в конце
+    'app/libs/slick-carousel/slick/slick.min.js',
+    'app/js/common.js' // Всегда в конце
   ])
 		.pipe(plumber())
 		.pipe(concat('scripts.min.js'))

@@ -1,54 +1,55 @@
 @import "fonts"
 @import "libs"
 @import "vars"
+@import "_sprite"
 
-// @mixin opacity($opacity)
-// 	opacity: $opacity / 100
-// 	filter: alpha(opacity=$opacity)
-//
-// .preloader
-// 		position: fixed
-// 		left: 0
-// 		right: 0
-// 		top: 0
-// 		bottom: 0
-// 		z-index: 100500
-// 		background-color: grey
-// 		.pulse
-// 			position: relative
-// 			left: 50%
-// 			top: 50vh
-// 			margin:
-// 				left: -40px
-// 				top: -40px
-// 			&::after,&::before
-// 				content: ''
-// 				border: 5px solid #323232
-// 				width: 80px
-// 				height: 80px
-// 				border-radius: 500px
-// 				position: absolute
-// 			&::before
-// 				animation: pulse-outer .8s ease-in infinite
-// 			&::after
-// 				animation: pulse-inner .8s linear infinite
-//
-//
-// @keyframes pulse-outer
-// 	0%
-// 		@include opacity(100)
-// 	50%
-// 		@include opacity(50)
-// 	100%
-// 		@include opacity(0)
-//
-// @keyframes pulse-inner
-// 	0%
-// 		@include opacity(0)
-// 		transform: scale(0)
-// 	100%
-// 		@include opacity(100)
-// 		transform: scale(1)
+@mixin opacity($opacity)
+	opacity: $opacity / 100
+	filter: alpha(opacity=$opacity)
+
+.preloader
+		position: fixed
+		left: 0
+		right: 0
+		top: 0
+		bottom: 0
+		z-index: 100500
+		background-color: #F6F6F6
+		.pulse
+			position: relative
+			left: 50%
+			top: 50vh
+			margin:
+				left: -40px
+				top: -40px
+			&::after,&::before
+				content: ''
+				border: 5px solid #323232
+				width: 80px
+				height: 80px
+				border-radius: 500px
+				position: absolute
+			&::before
+				animation: pulse-outer .8s ease-in infinite
+			&::after
+				animation: pulse-inner .8s linear infinite
+
+
+@keyframes pulse-outer
+	0%
+		@include opacity(100)
+	50%
+		@include opacity(50)
+	100%
+		@include opacity(0)
+
+@keyframes pulse-inner
+	0%
+		@include opacity(0)
+		transform: scale(0)
+	100%
+		@include opacity(100)
+		transform: scale(1)
 
 *
 	box-sizing: border-box
@@ -116,6 +117,7 @@ a
 		text-decoration: none
 section
 	position: relative
+	padding: 80px 0
 input
 	display: inline-block
 	outline: none
@@ -127,6 +129,40 @@ input
 	max-width: 100%
 	height: auto
 
+.hidden
+	opacity: 0
+
+.visible
+	opacity: 1
+
+// slick dots
+.slick-dots
+	position: absolute
+	bottom: -40px
+	display: block
+	width: 100%
+	padding: 0
+	margin: 0
+	list-style: none
+	text-align: center
+	li
+		position: relative
+		display: inline-block
+		width: 10px
+		height: 10px
+		margin: 0 5px
+		padding: 0
+		cursor: pointer
+
+.portfolio-dots
+	display: inline-block
+	width: 10px
+	height: 10px
+	background-color: $darkGreyColor
+	border-radius: 50%
+.slick-active
+	.portfolio-dots
+		background-color: $orangeColor
 // Header
 header
 	height: 100vh
@@ -189,4 +225,220 @@ header
 		font-size: 18px
 		line-height: 34px
 
+// Who-why
+.who-why
+	.g-section-title
+		&::before
+			content: ''
+			display: block
+			margin: 0 auto 20px
+			@include sprite($broccoli)
+
+// Advantages
+.advantages
+	text-align: center
+	&-item
+		position: relative
+		padding-top: 60px
+		display: inline-block
+		vertical-align: top
+		width: 25%
+		margin: 0 3% 40px
+		text-align: left
+	&-icon
+		position: absolute
+		left: 0
+		top: 0
+		display: block
+		margin-bottom: 25px
+	&-title
+		display: block
+		margin-bottom: 40px
+		font-size: 18px
+		font-family: $boldFont
+
+// Features
+.featured
+	.section-text__big
+		padding-bottom: 100px
+	&-slider
+		position: relative
+.featured-slider_prev,
+.featured-slider_next
+	position: absolute
+	top: 50%
+	transform: translateY(-50%)
+	a
+		display: block
+		width: 16px
+		height: 16px
+		&.disabled
+			display: none
+.featured-slider_prev
+	left: -5%
+	.bx-prev
+		background: url('../img/arrowLeft.svg') 0 0 no-repeat
+.featured-slider_next
+	right: -5%
+	.bx-next
+		background: url('../img/arrowRight.svg') 0 0 no-repeat
+		background-size: 100%
+.featured-item
+	position: relative
+	width: 100%
+	max-width: 360px
+	height: 370px
+	padding: 50px 40px
+	color: $whiteColor
+	background-color: $darkBg
+	&__filter
+		display: block
+		margin-bottom: 35px
+		text-transform: uppercase
+	&__text
+		font-size: 24px
+		line-height: 33px
+	&__bottom
+		position: absolute
+		bottom: 50px
+		height: 60px
+		padding-left: 80px
+		padding-top: 10px
+		span
+			display: block
+			font-size: 14px
+			font-weight: 400
+	&__photo
+		position: absolute
+		top: 0
+		left: 0
+	&__name
+		margin-bottom: 10px
+		text-transform: uppercase
+
+// Clients
+.clients-slider
+	position: relative
+.clients-slider_prev,
+.clients-slider_next
+	position: absolute
+	top: 50%
+	transform: translateY(-50%)
+	a
+		display: block
+		width: 16px
+		height: 16px
+		&.disabled
+			display: none
+.clients-slider_prev
+	left: -5%
+	.bx-prev
+		background: url('../img/arrowLeft.svg') 0 0 no-repeat
+		background-size: 100%
+.clients-slider_next
+	right: -5%
+	.bx-next
+		background: url('../img/arrowRight.svg') 0 0 no-repeat
+		background-size: 100%
+.js-clients-slider
+	li
+		padding: 5px
+	img
+		display: block
+		margin: 0 auto
+
+// Portfolio
+.js-portfolio-slider
+	div
+		max-height: 320px
+		min-height: 300px
+		overflow: hidden
+.portfolio
+	.section-text__big
+		&::after
+			content: ''
+			display: block
+			width: 75px
+			height: 7px
+			margin: 45px auto 55px
+			background-color: $orangeColor
+
+.portfolio-filter
+	margin-bottom: 40px
+	text-align: center
+	.portfolio-filter__item
+		display: inline-block
+		vertical-align: top
+		margin: 0 15px
+		cursor: pointer
+		&:hover
+			color: $orangeColor
+		&.portfolio-filter__item--all
+			display: none
+.portfolio-slider
+	display: none
+
+// Quote
+.quote
+	background-color: $mainColor
+	color: #fff
+	text-align: center
+	&-text
+		width: 100%
+		max-width: 740px
+		margin: 0 auto 35px
+		font-size: 20px
+		line-height: 38px
+		&::before
+			content: ''
+			display: block
+			@include sprite($quote)
+			margin: 0 auto 25px
+	&-author
+		font-size: 20px
+		line-height: 38px
+		font-style: italic
+		font-family: $lightFont
+
+// Team
+.team
+	text-align: center
+	.section-text__big
+		margin-bottom: 70px
+	&-item
+		position: relative
+		display: inline-block
+		vertical-align: top
+		width: 20%
+		margin: 0 2%
+		padding-top: 170px
+		span
+			display: block
+		&::before
+			content: ''
+			display: block
+			position: absolute
+			top: 0
+			left: 50%
+			transform: translateX(-50%)
+.lead
+	&::before
+		@include sprite($team-lead)
+.model
+	&::before
+		@include sprite($team-model)
+.master
+	&::before
+		@include sprite($team-manager)
+.manager
+	&::before
+		@include sprite($team-master)
+	&-name
+		margin-bottom: 20px
+		font-family: $boldFont
+		text-transform: uppercase
+	&-work
+		font-size: 15px
+// Facts
+.facts
 @import "media" // Всегда в конце

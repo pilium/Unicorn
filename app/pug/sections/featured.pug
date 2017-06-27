@@ -1,12 +1,3 @@
-mixin featuredItems(filter,text,photo,name,date)
-    li.featured-item
-        span.featured-item__filter= filter
-        p.featured-item__text= text
-        .featured-item__bottom
-            img(src=`img/featured/${photo}.png`, alt=`${photo}`).featured-item__photo
-            span.featured-item__name= name
-            span.featured-item__dates= date
-
 section.featured
     .container
         span.g-section-title Featured Articles

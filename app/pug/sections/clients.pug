@@ -1,7 +1,3 @@
-mixin clientList(logo)
-    li
-        img(src=`img/clients/${logo}.png`, alt=`${logo}`).clients__logo
-
 section.clients.gray-bg
     .container
         span.g-section-title Clients
@@ -9,15 +5,14 @@ section.clients.gray-bg
             .clients-slider_next
             .clients-slider_prev
             ul.js-clients__slider
-                +clientList('client1')
-                +clientList('client2')
-                +clientList('client3')
-                +clientList('client4')
-                +clientList('client5')
-                +clientList('client6')
-                +clientList('client1')
-                +clientList('client2')
-                +clientList('client3')
-                +clientList('client4')
-                +clientList('client5')
-                +clientList('client6')
+                +sliderList('client2')
+                +sliderList('client3')
+                +sliderList('client4')
+                +sliderList('client5')
+                +sliderList('client6')
+                +sliderList('client1')
+                +sliderList('client2')
+                +sliderList('client3')
+                +sliderList('client4')
+                +sliderList('client5')
+                +sliderList('client6')
