@@ -3,31 +3,60 @@ $(window).on('load', function() {
 });
 
 $(document).ready(function() {
-  $('.js-featured__slider').bxSlider({
-    hideControlOnEnd: true,
-    minSlides: 1,
-    maxSlides: 3,
-    slideWidth: 360,
-    slideMargin: 20,
-    pager: false,
-    infiniteLoop: false,
+  $('.js-featured__slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    infinite: false,
     nextText: '',
     prevText: '',
-    nextSelector: '.featured-slider_next',
-    prevSelector: '.featured-slider_prev'
+    nextArrow: '.featured-slider_next',
+    prevArrow: '.featured-slider_prev',
+    responsive: [
+      {
+        breakpoint: 1320,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true
+        }
+      },
+      {
+        breakpoint: 666,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      }
+    ]
   });
-  $('.js-clients__slider').bxSlider({
-    hideControlOnEnd: true,
-    minSlides: 1,
-    maxSlides: 6,
-    slideWidth: 180,
-    slideMargin: 35,
-    pager: false,
-    infiniteLoop: true,
+
+  $('.js-clients__slider').slick({
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    infinite: false,
     nextText: '',
     prevText: '',
-    nextSelector: '.clients-slider_next',
-    prevSelector: '.clients-slider_prev'
+    nextArrow: '.clients-slider_next',
+    prevArrow: '.clients-slider_prev',
+    responsive: [
+      {
+        breakpoint: 1320,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true
+        }
+      },
+      {
+        breakpoint: 766,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      }
+    ]
   });
 
   $('.portfolio-filter li:not(.active)').on('click', function() {
@@ -56,7 +85,20 @@ $(document).ready(function() {
     });
     $(this).addClass('active').siblings().removeClass('active');
   }).filter('[data-filter="all"]').click();
+
+  $('.js-articles-slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    infinite: false,
+    prevArrow: '.articles-slider__prev',
+    nextArrow: '.articles-slider__next'
+  });
+
+  $('.header-nav__toggle').click(function() {
+    $('.header-nav').toggleClass('active');
+  });
 });
+
 function titleAnimate() {
   var elements = document.querySelectorAll('.g-section-title');
 

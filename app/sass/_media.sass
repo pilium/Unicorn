@@ -1,17 +1,60 @@
 @import "vars"
 
 /*==========  Desktop First  ==========*/
-
+@media only screen and (max-width : 1330px)
+  .featured,
+  .clients
+    .slick-arrow
+      top: auto
+      bottom: -50px
+      margin: 0
+  .featured-slider_prev,
+  .clients-slider_prev
+    left: 45%
+  .featured-slider_next,
+  .clients-slider_next
+    right: 45%
+    transform: translateX(50%)
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px)
-	/**/
+@media only screen and (max-width : 600px)
+	.header-composition
+    top: 160px
+    text-align: center
+    .header-composition__title
+      font-size: 50px
+      &::after
+        right: 50%
+        transform: translateX(50%)
+    .header-composition__text
+      font-size: 16px
+      line-height: 20px
+// header
+//   min-height: 550px
+// .section-text__big
+//   line-height: 20px
+// section
+//   padding: 50px 0
 
-
+  .advantages-item
+    width: 40%
+    margin-bottom: 50px
+    &:last-child
+      margin-bottom: 0
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 992px)
-	/**/
-
-
+@media only screen and (max-width : 450px)
+  .header
+    text-align: center
+  .header-top
+    display: block
+  .header-composition__title
+    font-size: 50px
+  .header-nav
+    position: absolute
+    top: 10px
+    right: 25px
+  .advantages-item
+    width: 80%
+    margin: 0 auto 50px
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px)
 	/**/
@@ -25,31 +68,3 @@
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)
 	/**/
-
-
-/*==========  Mobile First  ==========*/
-
-/* Custom, iPhone Retina */
-@media only screen and (min-width : 320px)
-	/**/
-
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width : 480px)
-	/**/
-
-
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px)
-	/**/
-
-
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px)
-	/**/
-
-
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px)
-	/**/
-

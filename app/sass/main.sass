@@ -4,521 +4,821 @@
 @import "_sprite"
 
 @mixin opacity($opacity)
-	opacity: $opacity / 100
-	filter: alpha(opacity=$opacity)
+  opacity: $opacity / 100
+  filter: alpha(opacity=$opacity)
 
 .preloader
-		position: fixed
-		left: 0
-		right: 0
-		top: 0
-		bottom: 0
-		z-index: 100500
-		background-color: #F6F6F6
-		.pulse
-			position: relative
-			left: 50%
-			top: 50vh
-			margin:
-				left: -40px
-				top: -40px
-			&::after,&::before
-				content: ''
-				border: 5px solid #323232
-				width: 80px
-				height: 80px
-				border-radius: 500px
-				position: absolute
-			&::before
-				animation: pulse-outer .8s ease-in infinite
-			&::after
-				animation: pulse-inner .8s linear infinite
-
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  z-index: 100500
+  background-color: #F6F6F6
+  .pulse
+    position: relative
+    left: 50%
+    top: 50vh
+    margin:
+      left: -40px
+      top: -40px
+    &::after, &::before
+      content: ''
+      border: 5px solid #323232
+      width: 80px
+      height: 80px
+      border-radius: 500px
+      position: absolute
+    &::before
+      animation: pulse-outer .8s ease-in infinite
+    &::after
+      animation: pulse-inner .8s linear infinite
 
 @keyframes pulse-outer
-	0%
-		@include opacity(100)
-	50%
-		@include opacity(50)
-	100%
-		@include opacity(0)
+  0%
+    @include opacity(100)
+  50%
+    @include opacity(50)
+  100%
+    @include opacity(0)
 
 @keyframes pulse-inner
-	0%
-		@include opacity(0)
-		transform: scale(0)
-	100%
-		@include opacity(100)
-		transform: scale(1)
+  0%
+    @include opacity(0)
+    transform: scale(0)
+  100%
+    @include opacity(100)
+    transform: scale(1)
 
 *
-	box-sizing: border-box
+  box-sizing: border-box
+
 *::-webkit-input-placeholder
-	color: #666
-	opacity: 1
+  color: #666
+  opacity: 1
 
 *:-moz-placeholder
-	color: #666
-	opacity: 1
+  color: #666
+  opacity: 1
 
 *::-moz-placeholder
-	color: #666
-	opacity: 1
+  color: #666
+  opacity: 1
 
 *:-ms-input-placeholder
-	color: #666
-	opacity: 1
+  color: #666
+  opacity: 1
 
 *:after,
 *:before
-    box-sizing: border-box
+  box-sizing: border-box
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
-	color: #666
+  color: #666
+
 body input:required:valid,
 body textarea:required:valid
-	color: #666
+  color: #666
 
 html, body
-	height: 100%
-	margin: 0
-  padding: 0
+  height: 100%
+  margin: 0
+    padding: 0
 
 body
-	font-size: 16px
-	min-width: 320px
-	position: relative
-	line-height: 1.2
-	font-family: $mainFont
-	color: $mainColor
-	overflow-x: hidden
-	opacity: 1
-	.container
-		width: 100%
-		max-width: 1190px
-		margin: 0 auto
-		padding: 0 10px
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.2
+  font-family: $mainFont
+  color: $mainColor
+  overflow-x: hidden
+  opacity: 1
+  .container
+    width: 100%
+    max-width: 1190px
+    margin: 0 auto
+    padding: 0 10px
 
 li,
 ul
-	margin: 0
-	padding: 0
-	list-style-type: none
+  margin: 0
+  padding: 0
+  list-style-type: none
 
-h1,h2,h3,p
-	margin: 0
-	padding: 0
+h1, h2, h3, p
+  margin: 0
+  padding: 0
+
 a
-	text-decoration: none
-	color: #000
-	&:hover
-		color: inherit
-		text-decoration: none
-section
-	position: relative
-	padding: 80px 0
-input
-	display: inline-block
-	outline: none
+  text-decoration: none
+  color: #000
+  &:hover
+    color: inherit
+    text-decoration: none
 
+section
+  position: relative
+  padding: 80px 0
+
+input
+  display: inline-block
+  outline: none
+
+textarea
+  outline: none
+
+.slick-slide
+  &:focus
+    outline: none
 @import "common"
 
 .img-responsive
-	display: block
-	max-width: 100%
-	height: auto
+  display: block
+  max-width: 100%
+  height: auto
 
 .hidden
-	opacity: 0
+  opacity: 0
 
 .visible
-	opacity: 1
+  opacity: 1
 
 // slick dots
 .slick-dots
-	position: absolute
-	bottom: -40px
-	display: block
-	width: 100%
-	padding: 0
-	margin: 0
-	list-style: none
-	text-align: center
-	li
-		position: relative
-		display: inline-block
-		width: 10px
-		height: 10px
-		margin: 0 5px
-		padding: 0
-		cursor: pointer
+  position: absolute
+  bottom: -40px
+  display: block
+  width: 100%
+  padding: 0
+  margin: 0
+  list-style: none
+  text-align: center
+  li
+    position: relative
+    display: inline-block
+    width: 10px
+    height: 10px
+    margin: 0 5px
+    padding: 0
+    cursor: pointer
 
 .portfolio-dots
-	display: inline-block
-	width: 10px
-	height: 10px
-	background-color: $darkGreyColor
-	border-radius: 50%
+  display: inline-block
+  width: 10px
+  height: 10px
+  background-color: $darkGreyColor
+  border-radius: 50%
+
 .slick-active
-	.portfolio-dots
-		background-color: $orangeColor
+  .portfolio-dots
+    background-color: $orangeColor
 // Header
 header
-	height: 100vh
-	min-height: 700px
-	background: url('../img/top-banner-bg.jpg') center top no-repeat
-	background-size: cover
-	.container
-		position: relative
+  height: 100vh
+  min-height: 700px
+  background: url('../img/top-banner-bg.jpg') center top no-repeat
+  background-size: cover
+  .container
+    position: relative
+
 .header
-	max-width: 1170px
-	padding-top: 50px
-	overflow: hidden
+  max-width: 1170px
+  padding-top: 50px
+  overflow: hidden
+
 .header-top
-	display: flex
-	justify-content: space-between
-	.header-logo
-		font-family: $boldFont
-		font-size: 18px
-		text-transform: uppercase
+  display: flex
+  justify-content: space-between
+
+.header-nav
+  &.active
+    .nav-toggle-line--top
+      top: 9px
+      transition: 1s
+      transform: rotate(45deg)
+    .nav-toggle-line--middle
+      opacity: 0
+      transition: 1s
+    .nav-toggle-line--bottom
+      top: 9px
+      transition: 1s
+      transform: rotate(-45deg)
+    .header-nav__list
+      top: 1px
+      transition: .5s
 
 .header-nav__list
-	li
-		display: inline-block
-		margin-right: 12px
-		&:last-child
-			margin-right: 0
-	a
-		text-decoration: none
-		text-transform: uppercase
-		font-family: $boldFont
-		font-size: 16px
+  position: relative
+  display: inline-block
+  top: -100px
+  margin-right: 5px
+  transition: .5s
+  li
+    display: inline-block
+    margin-right: 12px
+    &:last-child
+      margin-right: 0
+  a
+    text-decoration: none
+    text-transform: uppercase
+    font-family: $boldFont
+    font-size: 16px
 
 .header-composition
-	position: absolute
-	right: 10px
-	top: 40%
-	top: 350px
-	width: 100%
-	max-width: 570px
-	text-align: right
-	&__title
-		position: relative
-		display: block
-		margin-bottom: 55px
-		font-size: 72px
-		line-height: 1
-		text-transform: uppercase
-		font-family: $boldFont
-		&::after
-			content: ''
-			position: absolute
-			right: 0
-			bottom: -22px
-			display: block
-			width: 25%
-			height: 4px
-			background-color: #000
-			transition: all 1s ease
-		&:hover
-			&::after
-				width: 50%
-	&__text
-		margin-bottom: 60px
-		font-size: 18px
-		line-height: 34px
+  position: absolute
+  right: 10px
+  top: 40%
+  top: 350px
+  width: 100%
+  max-width: 570px
+  text-align: right
+  &__title
+    position: relative
+    display: block
+    margin-bottom: 55px
+    font-size: 72px
+    line-height: 1
+    text-transform: uppercase
+    font-family: $boldFont
+    &::after
+      content: ''
+      position: absolute
+      right: 0
+      bottom: -22px
+      display: block
+      width: 25%
+      height: 4px
+      background-color: #000
+      transition: all 1s ease
+    &:hover
+      &::after
+        width: 50%
+  &__text
+    margin-bottom: 60px
+    font-size: 18px
+    line-height: 34px
 
+.header-nav__toggle
+  position: relative
+  display: inline-block
+  width: 15px
+  height: 15px
+  cursor: pointer
+
+.nav-toggle-line
+  position: absolute
+  right: 0
+  width: 100%
+  height: 2px
+  display: block
+  background-color: $mainColor
+
+.nav-toggle-line--top
+  top: 4px
+  transition: 1s
+
+.nav-toggle-line--middle
+  top: 9px
+  opacity: 1
+  transition: 1s
+
+.nav-toggle-line--bottom
+  top: 14px
+  transition: 1s
 // Who-why
 .who-why
-	.g-section-title
-		&::before
-			content: ''
-			display: block
-			margin: 0 auto 20px
-			@include sprite($broccoli)
+  .g-section-title
+    &::before
+      content: ''
+      display: block
+      margin: 0 auto 20px
+      @include sprite($broccoli)
 
 // Advantages
 .advantages
-	text-align: center
-	&-item
-		position: relative
-		padding-top: 60px
-		display: inline-block
-		vertical-align: top
-		width: 25%
-		margin: 0 3% 40px
-		text-align: left
-	&-icon
-		position: absolute
-		left: 0
-		top: 0
-		display: block
-		margin-bottom: 25px
-	&-title
-		display: block
-		margin-bottom: 40px
-		font-size: 18px
-		font-family: $boldFont
+  text-align: center
+  &-item
+    position: relative
+    padding-top: 60px
+    display: inline-block
+    vertical-align: top
+    width: 25%
+    margin: 0 3% 40px
+    text-align: left
+  &-icon
+    position: absolute
+    left: 0
+    top: 0
+    display: block
+    margin-bottom: 25px
+  &-title
+    display: block
+    margin-bottom: 40px
+    font-size: 18px
+    font-family: $boldFont
 
 // Features
 .featured
-	.section-text__big
-		padding-bottom: 100px
-	&-slider
-		position: relative
-.featured-slider_prev,
-.featured-slider_next
-	position: absolute
-	top: 50%
-	transform: translateY(-50%)
-	a
-		display: block
-		width: 16px
-		height: 16px
-		&.disabled
-			display: none
+  .section-text__big
+    padding-bottom: 100px
+  &-slider
+    position: relative
+  .slick-arrow
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    display: block
+    width: 15px
+    height: 15px
+    cursor: pointer
+    &.slick-disabled
+      opacity: 0
+
 .featured-slider_prev
-	left: -5%
-	.bx-prev
-		background: url('../img/arrowLeft.svg') 0 0 no-repeat
+  left: -5%
+  background: url('../img/arrowLeft.svg') 0 0 no-repeat
+  background-size: 100%
+
 .featured-slider_next
-	right: -5%
-	.bx-next
-		background: url('../img/arrowRight.svg') 0 0 no-repeat
-		background-size: 100%
+  right: -5%
+  background: url('../img/arrowRight.svg') 0 0 no-repeat
+  background-size: 100%
+
 .featured-item
-	position: relative
-	width: 100%
-	max-width: 360px
-	height: 370px
-	padding: 50px 40px
-	color: $whiteColor
-	background-color: $darkBg
-	&::after
-		content: ''
-		position: absolute
-		top: 0
-		bottom: 0
-		left: 0
-		right: 0
-		z-index: -1
-		width: 75px
-		height: 7px
-		margin: 0 auto
-		background-color: $orangeColor
-		transform: scaleX(0)
-		transform-origin: 50%
-		transition: transform .5s ease
-	&:hover
-		&::after
-			transform: scaleX(1)
-			z-index: 1
-	&__filter
-		display: block
-		margin-bottom: 35px
-		text-transform: uppercase
-	&__text
-		font-size: 24px
-		line-height: 33px
-	&__bottom
-		position: absolute
-		bottom: 50px
-		height: 60px
-		padding-left: 80px
-		padding-top: 10px
-		span
-			display: block
-			font-size: 14px
-			font-weight: 400
-	&__photo
-		position: absolute
-		top: 0
-		left: 0
-	&__name
-		margin-bottom: 10px
-		text-transform: uppercase
+  position: relative
+  height: 370px
+  padding: 50px 40px
+  margin: 0 15px
+  color: $whiteColor
+  background-color: $darkBg
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: -1
+    width: 75px
+    height: 7px
+    margin: 0 auto
+    background-color: $orangeColor
+    transform: scaleX(0)
+    transform-origin: 50%
+    transition: transform .5s ease
+  &:hover
+    &::after
+      transform: scaleX(1)
+      z-index: 1
+  &__filter
+    display: block
+    margin-bottom: 35px
+    text-transform: uppercase
+  &__text
+    font-size: 24px
+    line-height: 33px
+  &__bottom
+    position: absolute
+    bottom: 50px
+    height: 60px
+    padding-left: 80px
+    padding-top: 10px
+    span
+      display: block
+      font-size: 14px
+      font-weight: 400
+  &__photo
+    position: absolute
+    top: 0
+    left: 0
+  &__name
+    margin-bottom: 10px
+    text-transform: uppercase
 
 // Clients
+.clients
+  .slick-initialized
+    .slick-slide
+      text-align: -webkit-center
+  .slick-arrow
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    width: 15px
+    height: 15px
+    display: block
+    cursor: pointer
+  .slick-disabled
+    opacity: 0
+
 .clients-slider
-	position: relative
-.clients-slider_prev,
-.clients-slider_next
-	position: absolute
-	top: 50%
-	transform: translateY(-50%)
-	a
-		display: block
-		width: 16px
-		height: 16px
-		&.disabled
-			display: none
+  position: relative
+
 .clients-slider_prev
-	left: -5%
-	.bx-prev
-		background: url('../img/arrowLeft.svg') 0 0 no-repeat
-		background-size: 100%
+  left: -5%
+  background: url('../img/arrowLeft.svg') 0 0 no-repeat
+  background-size: 100%
+
 .clients-slider_next
-	right: -5%
-	.bx-next
-		background: url('../img/arrowRight.svg') 0 0 no-repeat
-		background-size: 100%
+  right: -5%
+  background: url('../img/arrowRight.svg') 0 0 no-repeat
+  background-size: 100%
+
 .js-clients-slider
-	li
-		padding: 5px
-	img
-		display: block
-		margin: 0 auto
+  li
+    padding: 5px
+  img
+    display: block
+    margin: 0 auto
 
 // Portfolio
 .js-portfolio-slider
-	div
-		max-height: 320px
-		min-height: 300px
-		overflow: hidden
+  div
+    max-height: 320px
+    min-height: 300px
+    overflow: hidden
+
 .portfolio
-	.section-text__big
-		&::after
-			content: ''
-			display: block
-			width: 75px
-			height: 7px
-			margin: 45px auto 55px
-			background-color: $orangeColor
+  .section-text__big
+    &::after
+      content: ''
+      display: block
+      width: 75px
+      height: 7px
+      margin: 45px auto 55px
+      background-color: $orangeColor
 
 .portfolio-filter
-	margin-bottom: 40px
-	text-align: center
-	.portfolio-filter__item
-		display: inline-block
-		vertical-align: top
-		margin: 0 15px
-		cursor: pointer
-		&:hover
-			color: $orangeColor
-		&.portfolio-filter__item--all
-			display: none
+  margin-bottom: 40px
+  text-align: center
+  .portfolio-filter__item
+    display: inline-block
+    vertical-align: top
+    margin: 0 15px
+    cursor: pointer
+    &:hover
+      color: $orangeColor
+    &.portfolio-filter__item--all
+      display: none
+
 .portfolio-slider
-	display: none
+  display: none
 
 // Quote
 .quote
-	background-color: $mainColor
-	color: #fff
-	text-align: center
-	&-text
-		width: 100%
-		max-width: 740px
-		margin: 0 auto 35px
-		font-size: 20px
-		line-height: 38px
-		&::before
-			content: ''
-			display: block
-			@include sprite($quote)
-			margin: 0 auto 25px
-	&-author
-		font-size: 20px
-		line-height: 38px
-		font-style: italic
-		font-family: $lightFont
+  background-color: $mainColor
+  color: #fff
+  text-align: center
+  &-text
+    width: 100%
+    max-width: 740px
+    margin: 0 auto 35px
+    font-size: 20px
+    line-height: 38px
+    &::before
+      content: ''
+      display: block
+      @include sprite($quote)
+      margin: 0 auto 25px
+  &-author
+    font-size: 20px
+    line-height: 38px
+    font-style: italic
+    font-family: $lightFont
 
 // Team
 .team
-	text-align: center
-	.section-text__big
-		margin-bottom: 70px
-	&-item
-		position: relative
-		display: inline-block
-		vertical-align: top
-		width: 20%
-		margin: 0 2%
-		padding-top: 170px
-		span
-			display: block
-		&::before
-			content: ''
-			display: block
-			position: absolute
-			top: 0
-			left: 50%
-			transform: translateX(-50%)
+  text-align: center
+  .section-text__big
+    margin-bottom: 70px
+  &-item
+    position: relative
+    display: inline-block
+    vertical-align: top
+    width: 20%
+    margin: 0 2%
+    padding-top: 170px
+    span
+      display: block
+    &::before
+      content: ''
+      display: block
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+
 .lead
-	&::before
-		@include sprite($team-lead)
+  &::before
+    @include sprite($team-lead)
+
 .model
-	&::before
-		@include sprite($team-model)
+  &::before
+    @include sprite($team-model)
+
 .master
-	&::before
-		@include sprite($team-manager)
+  &::before
+    @include sprite($team-manager)
+
 .manager
-	&::before
-		@include sprite($team-master)
-	&-name
-		margin-bottom: 20px
-		font-family: $boldFont
-		text-transform: uppercase
-	&-work
-		font-size: 15px
+  &::before
+    @include sprite($team-master)
+  &-name
+    margin-bottom: 20px
+    font-family: $boldFont
+    text-transform: uppercase
+  &-work
+    font-size: 15px
+
 // Facts
 .facts
-	position: relative
-	background: url('../img/facts-bg.jpg') 0 0 no-repeat
-	background-size: cover
-	color: #fff
-	&::after
-		content: ''
-		position: absolute
-		top: 0
-		bottom: 0
-		left: 0
-		right: 0
-		z-index: 1
-		background-color: rgba(0,0,0, .5)
-		display: block
-	.container
-		position: relative
-		z-index: 2
+  position: relative
+  background: url('../img/facts-bg.jpg') 0 0 no-repeat
+  background-size: cover
+  color: #fff
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 1
+    background-color: rgba(0, 0, 0, .5)
+    display: block
+  .container
+    position: relative
+    z-index: 2
+
 .facts-item__wrap
-	position: relative
-	width: 100%
-	max-width: 830px
-	margin: 0 auto
-	padding: 60px 50px 10px 50px
-	background-color: rgba(255,255,255, .34)
-	&::after
-		content: ''
-		position: absolute
-		bottom: -4px
-		left: 50%
-		transform: translateX(-50%)
-		display: block
-		width: 75px
-		height: 4px
-		background-color: $orangeColor
+  position: relative
+  width: 100%
+  max-width: 830px
+  margin: 0 auto
+  padding: 60px 50px 10px 50px
+  background-color: rgba(255, 255, 255, .34)
+  &::after
+    content: ''
+    position: absolute
+    bottom: -4px
+    left: 50%
+    transform: translateX(-50%)
+    display: block
+    width: 75px
+    height: 4px
+    background-color: $orangeColor
+
 .facts-item
-	display: inline-block
-	vertical-align: top
-	width: 45%
-	margin: 0 2% 50px
-	text-align: center
-	&:hover
-		span
-			&::after
-				background-color: $orangeColor
+  display: inline-block
+  vertical-align: top
+  width: 45%
+  margin: 0 2% 50px
+  text-align: center
+  &:hover
+    span
+      &::after
+        background-color: $orangeColor
+
 .facts-number
-	font-size: 27px
-	font-family: $boldFont
-	&::after
-		content: ''
-		display: block
-		margin: 20px auto
-		width: 75px
-		height: 4px
-		background-color: $darkestGrayColor
-		transition: all .7s
+  font-size: 27px
+  font-family: $boldFont
+  &::after
+    content: ''
+    display: block
+    margin: 20px auto
+    width: 75px
+    height: 4px
+    background-color: $darkestGrayColor
+    transition: all .7s
+
 .facts-title
-	font-size: 24px
-@import "media" // Всегда в конце
+  font-size: 24px
+
+// Articles
+.article-line
+  overflow: hidden
+  margin-bottom: 50px
+  &:last-child
+    margin-bottom: 0
+
+.article-item
+  float: left
+  width: 48%
+  text-align: center
+  span
+    display: block
+  &:first-child
+    margin-right: 4%
+
+.article-text
+  width: 95%
+  max-width: 420px
+  margin: 0 auto
+  padding-top: 80px
+
+.article-info
+  margin-bottom: 20px
+  color: $lightGrayColor
+
+.article-title
+  margin-bottom: 45px
+  font-size: 24px
+  line-height: 33px
+
+.article-img
+  position: relative
+  width: 100%
+  transition: all 1s ease
+  &:hover
+    filter: grayscale(90%)
+
+// Articles-slider
+.articles-slider
+  .slick-arrow
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    width: 15px
+    height: 15px
+    cursor: pointer
+    &.slick-disabled
+      opacity: 0
+  .articles-slider__prev
+    left: 5%
+    background: url('../img/arrowLeft.svg') 0 0 no-repeat
+    background-size: 100%
+  .articles-slider__next
+    right: 5%
+    background: url('../img/arrowRight.svg') 0 0 no-repeat
+    background-size: 100%
+
+.articles-slider__item
+  padding: 15px 30px
+  border-left: 5px solid black
+  transition: all .5s ease
+  &:hover
+    border-left-color: $orangeColor
+  span
+    display: block
+
+.articles-slider__title
+  margin-bottom: 10px
+  font-family: $boldFont
+  font-size: 18px
+
+.articles-slider__info
+  color: $lightGrayColor
+
+// Twitter
+.twitter
+  text-align: center
+
+.twitter-pic
+  &::before
+    content: ''
+    display: block
+    @include sprite($twitter)
+    margin: 0 auto 60px
+
+// footer
+footer
+  background-color: $mainColor
+
+.footer
+  position: relative
+  width: 97%
+  max-width: 1170px
+  margin: 0 auto
+  padding: 75px 0 40px
+  color: $footerTextColor
+  a
+    color: $footerTextColor
+  &-logo
+    margin-bottom: 5px
+    color: #fff
+    font-size: 22px
+  &-text
+    margin-bottom: 25px
+    font-size: 14px
+    line-height: 24px
+
+.footer-form__line
+  overflow: hidden
+
+.footer-form__input
+  float: left
+  width: 45%
+  margin-bottom: 20px
+  margin-right: 10%
+  padding-bottom: 8px
+  border: 0
+  border-bottom: 1px solid $darkBorderColor
+  background: none
+  font-size: 14px
+  color: $footerTextColor
+  text-transform: uppercase
+  &:focus
+    border-bottom-color: White
+  &:last-child
+    margin-right: 0
+
+.footer-top
+  overflow: hidden
+  padding-bottom: 15px
+  margin-bottom: 30px
+  border-bottom: 1px solid $darkBorderColor
+  &__left
+    float: left
+    width: 100%
+    max-width: 450px
+    overflow: hidden
+  &__right
+    float: right
+    width: 100%
+    max-width: 600px
+
+.footer-form__text
+  width: 100%
+  height: 35px
+  margin-bottom: 70px
+  padding-bottom: 8px
+  border: none
+  border-bottom: 1px solid $darkBorderColor
+  background: none
+  text-transform: uppercase
+  font-size: 14px
+  line-height: 24px
+  color: $footerTextColor
+  &:focus
+    border-bottom-color: White
+
+.footer-form__btn
+  position: relative
+  display: inline-block
+  padding-right: 10px
+  &:hover
+    &::after
+      border-color: transparent transparent transparent $orangeColor
+    input
+      color: $orangeColor
+
+  &::after
+    content: ''
+    position: absolute
+    right: 0
+    top: 5px
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 5px 0 5px 6px
+    border-color: transparent transparent transparent $footerTextColor
+  input
+    border: none
+    background: none
+    color: $footerTextColor
+    text-transform: uppercase
+
+.footer-form__menu
+  float: left
+  width: 30%
+  margin-right: 5%
+  &:last-child
+    margin-right: 0
+
+.footer-nav__title
+  display: block
+  margin-bottom: 35px
+  text-transform: uppercase
+  color: #fff
+  font-size: 15px
+
+.footer-nav__List
+  li
+    margin-bottom: 15px
+
+.footer-bottom
+  overflow: hidden
+
+.footer-disclaimer
+  float: left
+  span
+    display: block
+    margin-bottom: 10px
+
+.footer-info-menu
+  float: right
+
+.footer-info-menu__list
+  li
+    display: inline-block
+    vertical-align: top
+    margin-left: 35px
+    &:first-child
+      margin-left: 0
+    a
+      text-transform: uppercase
+
+@import "media"
+// Всегда в конце

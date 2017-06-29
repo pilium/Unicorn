@@ -33,7 +33,6 @@ gulp.task('pug', function() {
 
 gulp.task('js', function() {
   return gulp.src([
-    'app/libs/bxslider-4/dist/jquery.bxslider.min.js',
     'app/libs/wow/dist/wow.min.js',
     'app/libs/slick-carousel/slick/slick.min.js',
     'app/js/common.js' // Всегда в конце
@@ -74,7 +73,7 @@ gulp.task('watch', ['pug', 'sass', 'js', 'browser-sync'], function() {
 });
 
 gulp.task('imagemin', function() {
-  return gulp.src('app/img/**/*')
+  return gulp.src('app/img/**/*', !'app/img/sprite/*.*')
 		.pipe(cache(imagemin()))
 		.pipe(gulp.dest('dist/img'));
 });
@@ -123,6 +122,10 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
   var buildFonts = gulp.src([
     'app/fonts/**/*',
   ]).pipe(gulp.dest('dist/fonts'));
+
+  var buildImg = gulp.src('app/img/sprite/sprite.png')
+        .pipe(cache(imagemin()))
+        .pipe(gulp.dest('dist/img/sprite/'));
 
 });
 
