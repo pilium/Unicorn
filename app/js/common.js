@@ -79,6 +79,32 @@ $(document).ready(function() {
       slidesToScroll: 1,
       arrows: false,
       dots: true,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true
+          }
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            arrows: false
+          }
+        },
+        {
+          breakpoint: 450,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false
+          }
+        }
+      ],
       customPaging: function(slider, i) {
         return '<a class="portfolio-dots"></a>';
       }
@@ -91,7 +117,26 @@ $(document).ready(function() {
     slidesToScroll: 1,
     infinite: false,
     prevArrow: '.articles-slider__prev',
-    nextArrow: '.articles-slider__next'
+    nextArrow: '.articles-slider__next',
+    responsive: [
+      {
+        breakpoint: 780,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 450,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      }
+    ],
   });
 
   $('.header-nav__toggle').click(function() {
